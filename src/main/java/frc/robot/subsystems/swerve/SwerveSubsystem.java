@@ -59,7 +59,7 @@ public class SwerveSubsystem extends SubsystemBase {
                 new HolonomicPathFollowerConfig(
                         new PIDConstants(SwerveConstants.AutoConstants.TRANSLATION_CONTROLLER_P_COEFF, 0.0, 0.0),
                         new PIDConstants(SwerveConstants.AutoConstants.ROTATION_CONTROLLER_P_COEFF, 0.0, 0.0),
-                        4.5,
+                        SwerveConstants.Swerve.maxSpeed,
                         0.422930975455813818,
                         new ReplanningConfig()),
                 () -> {

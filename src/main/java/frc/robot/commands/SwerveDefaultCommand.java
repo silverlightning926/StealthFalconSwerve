@@ -18,9 +18,9 @@ public class SwerveDefaultCommand extends Command {
     private DoubleSupplier rotationSup;
     private BooleanSupplier robotCentricSup;
 
-    public SwerveDefaultCommand(SwerveSubsystem s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup, DoubleSupplier rotationSup, BooleanSupplier robotCentricSup) {
-        this.swerveSubsystem = s_Swerve;
-        addRequirements(s_Swerve);
+    public SwerveDefaultCommand(SwerveSubsystem swerveSubsystem, DoubleSupplier translationSup, DoubleSupplier strafeSup, DoubleSupplier rotationSup, BooleanSupplier robotCentricSup) {
+        this.swerveSubsystem = swerveSubsystem;
+        addRequirements(swerveSubsystem);
 
         this.translationSup = translationSup;
         this.strafeSup = strafeSup;

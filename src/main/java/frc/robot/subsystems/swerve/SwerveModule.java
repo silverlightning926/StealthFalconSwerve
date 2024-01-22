@@ -52,7 +52,7 @@ public class SwerveModule {
     }
 
     private void setSpeed(SwerveModuleState desiredState) {
-        driveDutyCycle.Output = desiredState.speedMetersPerSecond / SwerveConstants.Swerve.maxSpeed;
+        driveDutyCycle.Output = desiredState.speedMetersPerSecond / SwerveConstants.maxSpeed;
         mDriveMotor.setControl(driveDutyCycle);
     }
 
@@ -67,14 +67,14 @@ public class SwerveModule {
 
     public SwerveModuleState getState() {
         return new SwerveModuleState(
-                Conversions.RPSToMPS(mDriveMotor.getVelocity().getValue(), SwerveConstants.Swerve.wheelCircumference),
+                Conversions.RPSToMPS(mDriveMotor.getVelocity().getValue(), SwerveConstants.wheelCircumference),
                 Rotation2d.fromRotations(mAngleMotor.getPosition().getValue()));
     }
 
     public SwerveModulePosition getPosition() {
         return new SwerveModulePosition(
                 Conversions.rotationsToMeters(mDriveMotor.getPosition().getValue(),
-                        SwerveConstants.Swerve.wheelCircumference),
+                        SwerveConstants.wheelCircumference),
                 Rotation2d.fromRotations(mAngleMotor.getPosition().getValue()));
     }
 }

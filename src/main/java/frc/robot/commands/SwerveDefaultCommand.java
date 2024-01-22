@@ -37,8 +37,8 @@ public class SwerveDefaultCommand extends Command {
 
         /* Drive */
         swerveSubsystem.drive(
-            new Translation2d(translationVal, strafeVal).times(SwerveConstants.Swerve.maxSpeed), 
-            rotationVal * SwerveConstants.Swerve.maxAngularVelocity, 
+            new Translation2d(translationVal, strafeVal).times(SwerveConstants.maxSpeed), 
+            rotationVal * SwerveConstants.maxAngularVelocity, 
             !robotCentricSup.getAsBoolean()
         );
     }

@@ -43,13 +43,14 @@ public class SwerveSubsystem extends SubsystemBase {
                 new SwerveModule(3, SwerveConstants.Mod3.constants)
         };
 
+        Timer.delay(1.0);
+        resetModulesToAbsolute();
+
         swerveOdometry = new SwerveDrivePoseEstimator(
                 SwerveConstants.swerveKinematics,
                 getGyroYaw(),
                 getModulePositions(),
                 new Pose2d());
-
-        this.visionSubsystem = visionSubsystem;
 
         AutoBuilder.configureHolonomic(
                 this::getPose,
@@ -72,8 +73,7 @@ public class SwerveSubsystem extends SubsystemBase {
                 },
                 this);
 
-        Timer.delay(1.0);
-        resetModulesToAbsolute();
+        this.visionSubsystem = visionSubsystem;
     }
 
     public ChassisSpeeds getRobotRelativeSpeeds() {

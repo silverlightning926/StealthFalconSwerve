@@ -155,8 +155,13 @@ public class SwerveSubsystem extends SubsystemBase {
         }
     }
 
-    public Command getAutonomousCommand(String pathName) {
+    public Command followPathCommand(String pathName, boolean initialPath) {
         PathPlannerPath path = PathPlannerPath.fromPathFile(pathName);
+
+        if (initialPath) {
+            setPose(path.getPreviewStartingHolonomicPose());
+        }
+
         return AutoBuilder.followPath(path);
     }
 
